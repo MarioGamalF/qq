@@ -1,4 +1,3 @@
-from tkinter import Image
 import os
 import numpy as np
 from PIL import Image
@@ -14,12 +13,7 @@ model = load_model(MODEL_PATH)
 # model._make_predict_function()          # Necessary to make everything ready to run on the GPU ahead of time
 print('Model loaded. Start serving...')
 # C:\Users\Admin\PycharmProjects\flask
-def preprossing(image):
-    image = Image.open(image)
-    image = image.resize((240, 240))
-    image_arr = np.array(image.convert('RGB'))
-    image_arr.shape = (1, 240, 240, 3)
-    return image_arr
+
 def model_predict(img_path, model):
     img = image.load_img(img_path,target_size=(240, 240))  # target_size must agree with what the trained model expects!!
 
